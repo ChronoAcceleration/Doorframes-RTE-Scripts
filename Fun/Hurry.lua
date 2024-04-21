@@ -25,7 +25,12 @@ local Config = {
 	FlickerLights = 5,
 	BackwardsMovement = false,
 	AttackDelay = 0.5,
-	HalfRebounds = false
+	HalfRebounds = false,
+	Cycles = {
+		Max = 1,
+		Min = 1,
+		WaitTime = 2,
+	}
 }
 
 local Possible = {
@@ -43,7 +48,7 @@ local Possible = {
 }
 
 local ScaryTextTask = task.spawn(function()
-	while task.wait(0.04) do
+	while task.wait(0.1) do
 		Hint:FireAllClients(Possible[math.random(#Possible)], 0.05)
 	end
 end)
