@@ -16,11 +16,11 @@ local Hint = Bricks.Hint
 local Config = {
 	Model = game.InsertService:LoadAsset(17234289600).Hurry,
 	Name = "Hurry",
-	Speed = 100,
-	DelayTime = 4,
+	Speed = 300,
+	DelayTime = 10,
 	Damage = 100,
 	KillRange = 50,
-	HeightOffset = 1,
+	HeightOffset = 0,
 	BreakLights = false,
 	FlickerLights = 5,
 	BackwardsMovement = false,
@@ -29,38 +29,10 @@ local Config = {
 	Cycles = {
 		Max = 1,
 		Min = 1,
-		WaitTime = 2,
+		WaitTime = 4,
 	}
 }
 
-local Possible = {
-	"He is here.",
-	"Run idiot.",
-	"YOU'RE DONE.",
-	"GIVE UP.",
-	"HURRY up.",
-	"NO NO NO NO NO",
-	"ITS THE END",
-	"WE'RE DONE!",
-	"DONT HIDE",
-	"HIDE",
-	"KNEEL"
-}
-
-local ScaryTextTask = task.spawn(function()
-	while task.wait(0.1) do
-		Hint:FireAllClients(Possible[math.random(#Possible)], 0.05)
-	end
-end)
-
-Debug = {
-	OnEntityAttack = function(Player)
-		if ScaryTextTask then
-			task.cancel(ScaryTextTask)
-			print('ded')
-		end
-	end
-}
-
+Hint:FireAllClients("YOU'RE DEAD DEAD DEAD DEAD DEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEADDEAD DEAD DEAD DEAD", 1)
 
 entityHandler.Spawn(Config)
